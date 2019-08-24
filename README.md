@@ -8,6 +8,8 @@ A basic CRUD (Create, Read, Update, Delete) using [Svelte](https://svelte.dev), 
 https://svelte-sapper-bulma-crud.danielschmitz.now.sh
 **WIP**
 
+or
+
 **WIP**
 https://svelte-sapper-bulma-crud.axelnitzschner.now.sh
 **WIP**
