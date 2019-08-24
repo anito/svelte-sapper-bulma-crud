@@ -4,8 +4,10 @@ A basic CRUD (Create, Read, Update, Delete) using [Svelte](https://svelte.dev), 
 
 ## DEMO
 
-**WIP** https://svelte-sapper-bulma-crud.danielschmitz.now.sh **WIP**
-**WIP** https://svelte-sapper-bulma-crud.axelnitzschner.now.sh **WIP**
+**WIP**
+https://svelte-sapper-bulma-crud.danielschmitz.now.sh
+https://svelte-sapper-bulma-crud.axelnitzschner.now.sh
+**WIP**
 
 ## Instalation
 
