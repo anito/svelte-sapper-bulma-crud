@@ -45,7 +45,7 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="home">
+    <a class="navbar-item" href="/">
       <img
         src="https://bulma.io/images/bulma-logo.png"
         width="112"
@@ -96,7 +96,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <a
-            href="https://github.com/danielschmitz/svelte-sapper-bulma-crud"
+            href="https://github.com/anito/svelte-sapper-bulma-crud"
             target="_blank"
             class="button is-light">
             GitHub
