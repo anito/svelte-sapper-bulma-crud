@@ -1,4 +1,6 @@
 <script context="module">
+	import Card from "../../components/Card.svelte";
+
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
@@ -26,6 +28,11 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
 	*/
+	h1 {
+		font-size: 3em;
+		font-weight: 700;
+		margin: 30px;
+	}
 	.content :global(h2) {
 		font-size: 1.4em;
 		font-weight: 500;
@@ -59,6 +66,9 @@
 
 <h1>{post.title}</h1>
 
-<div class='content'>
-	{@html post.html}
-</div>
+
+<Card title="{post.title}">
+	<div class='content'>
+		{@html post.html}
+	</div>
+</Card>

@@ -45,26 +45,27 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
+    <a class="navbar-item" href="https://bulma.io/">
       <img
         src="https://bulma.io/images/bulma-logo.png"
         width="112"
         alt="Bulma"
         height="28" />
+    </a>
+    <a class="navbar-item" href="https://svelte.dev/">
       <img
         src="https://svelte.dev/svelte-logo-horizontal.svg"
         width="112"
         alt="Svelte"
         height="28" />
+    </a>
+    <a class="navbar-item" href="https://sapper.svelte.dev/">
       <img
         src="https://sapper.svelte.dev/sapper-logo-horizontal.svg"
         width="112"
         alt="Sapper"
         height="28" />
     </a>
-
-
-  
 
     <a
       href="javascript:;"
@@ -77,6 +78,7 @@
       <span aria-hidden="true" />
       <span aria-hidden="true" />
     </a>
+    
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
