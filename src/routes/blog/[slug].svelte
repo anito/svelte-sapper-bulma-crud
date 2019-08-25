@@ -1,5 +1,7 @@
 <script context="module">
 	import Card from "../../components/Card.svelte";
+	import Message from "../../components/Message.svelte";
+	import posts from './_posts.js';
 
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
@@ -14,11 +16,6 @@
 		}
 	}
 
-	let disabled = (...args) => {
-		console.log(args);
-		return true
-	}
-
 </script>
 
 <script>
@@ -28,6 +25,17 @@
 		let el = e.target;
 		let url = el.dataset.href;
 		window.location.href = url;
+	}
+	let prevSlug = function() {
+		if (0 === post.id) return "";
+		let keys = Object.keys(posts);
+		return keys[post.id-1];
+	}
+	let nextSlug = function() {
+		let keys = Object.keys(posts);
+		if (keys.length-1 === post.id) return "";
+		let id = post.id+1;
+		return keys[id];
 	}
 </script>
 
@@ -41,7 +49,7 @@
 		all elements inside .content
 	*/
 	h1 {
-		font-size: 3em;
+		font-size: 2em;
 		font-weight: 700;
 		margin: 30px;
 	}
@@ -70,6 +78,10 @@
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
 	}
+	.content {
+		height: 300px;
+		overflow: auto;
+	}
 	.button {
 		margin: 30px;
 		padding-top: 0;
@@ -77,6 +89,7 @@
 	}
 	.button-group {
 		width: 100%;
+		margin-left: 0;
 	}
 </style>
 
@@ -89,12 +102,15 @@
 <Card title="{post.title}">
 	<div class='content'>
 		{@html post.html}
+		{#if post.message}
+			<Message message={post.message} messageHeader={post.messageHeader}/>
+		{/if}
 	</div>
 	<div slot="footer" class="columns is-mobile button-group is-block is-clearfix">
-		<button class="button is-link is-pulled-left column total-{post.total} id-{post.id}" data-href="/blog/{post.prevUrl}" disabled={!post.hasPrev} on:click={go}>
+		<button class="button is-link is-pulled-left column" data-href="/blog/{prevSlug()}" disabled={!post.prev} on:click={go}>
 			Previous
 		</button>
-		<button class="button is-link is-pulled-right column" data-href="/blog/{post.nextUrl}" disabled={!post.hasNext} on:click={go}>
+		<button class="button is-link is-pulled-right column" data-href="/blog/{nextSlug()}" disabled={!post.next} on:click={go}>
 			Next
 		</button>
 	</div>

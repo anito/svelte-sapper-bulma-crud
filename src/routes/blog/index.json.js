@@ -1,9 +1,12 @@
 import posts from './_posts.js';
 
-const contents = JSON.stringify(posts.map(post => {
+let keys = Object.keys(posts);
+
+const contents = JSON.stringify(keys.map(key => {
+	let post = posts[key];
 	return {
 		title: post.title,
-		slug: post.slug
+		slug: key
 	};
 }));
 

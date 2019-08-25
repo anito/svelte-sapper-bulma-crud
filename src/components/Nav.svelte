@@ -45,24 +45,24 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io/">
+    <a class="navbar-item" href="https://bulma.io/" target="_blank">
       <img
         src="https://bulma.io/images/bulma-logo.png"
-        width="112"
+        width="80"
         alt="Bulma"
         height="28" />
     </a>
-    <a class="navbar-item" href="https://svelte.dev/">
+    <a class="navbar-item" href="https://svelte.dev/" target="_blank">
       <img
         src="https://svelte.dev/svelte-logo-horizontal.svg"
-        width="112"
+        width="80"
         alt="Svelte"
         height="28" />
     </a>
-    <a class="navbar-item" href="https://sapper.svelte.dev/">
+    <a class="navbar-item" href="https://sapper.svelte.dev/" target="_blank">
       <img
         src="https://sapper.svelte.dev/sapper-logo-horizontal.svg"
-        width="112"
+        width="80"
         alt="Sapper"
         height="28" />
     </a>

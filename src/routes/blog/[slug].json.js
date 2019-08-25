@@ -1,8 +1,10 @@
 import posts from './_posts.js';
 
 const lookup = new Map();
-posts.forEach(post => {
-	lookup.set(post.slug, JSON.stringify(post));
+let keys = Object.keys(posts);
+
+keys.forEach(key => {
+	lookup.set(key, JSON.stringify(posts[key]));
 });
 
 export function get(req, res, next) {

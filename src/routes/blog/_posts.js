@@ -7,10 +7,9 @@
 // we don't want to create an `/blog/posts` route — the leading
 // underscore tells Sapper not to do that.
 
-const posts = [
+const _posts = [
 	{
 		title: 'What is Sapper?',
-		slug: 'what-is-sapper',
 		html: `
 			<p>First, you have to know what <a href='https://svelte.dev'>Svelte</a> is. Svelte is a UI framework with a bold new idea: rather than providing a library that you write code with (like React or Vue, for example), it's a compiler that turns your components into highly optimized vanilla JavaScript. If you haven't already read the <a href='https://svelte.dev/blog/frameworks-without-the-framework'>introductory blog post</a>, you should!</p>
 
@@ -29,7 +28,6 @@ const posts = [
 
 	{
 		title: 'How to use Sapper',
-		slug: 'how-to-use-sapper',
 		html: `
 			<h2>Step one</h2>
 			<p>Create a new project, using <a href='https://github.com/Rich-Harris/degit'>degit</a>:</p>
@@ -53,7 +51,6 @@ const posts = [
 
 	{
 		title: 'Why the name?',
-		slug: 'why-the-name',
 		html: `
 			<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
@@ -63,7 +60,6 @@ const posts = [
 
 	{
 		title: 'How is Sapper different from Next.js?',
-		slug: 'how-is-sapper-different-from-next',
 		html: `
 			<p><a href='https://github.com/zeit/next.js'>Next.js</a> is a React framework from <a href='https://zeit.co'>Zeit</a>, and is the inspiration for Sapper. There are a few notable differences, however:</p>
 
@@ -78,21 +74,46 @@ const posts = [
 
 	{
 		title: 'How can I get involved?',
-		slug: 'how-can-i-get-involved',
 		html: `
 			<p>We're so glad you asked! Come on over to the <a href='https://github.com/sveltejs/svelte'>Svelte</a> and <a href='https://github.com/sveltejs/sapper'>Sapper</a> repos, and join us in the <a href='https://svelte.dev/chat'>Discord chatroom</a>. Everyone is welcome, especially you!</p>
 		`
+	},
+
+	{
+		title: 'How can I get involved?',
+		html: `
+			<p>Duplicate: We're so glad you asked! Come on over to the <a href='https://github.com/sveltejs/svelte'>Svelte</a> and <a href='https://github.com/sveltejs/sapper'>Sapper</a> repos, and join us in the <a href='https://svelte.dev/chat'>Discord chatroom</a>. Everyone is welcome, especially you!</p>
+		`,
+		messageHeader: 'Unique Urls',
+		message: 'In this example slugs are generated automatically from the title. Note the difference in urls of this articel and the previous one although both share the same title.'
 	}
 ];
 
-posts.forEach( (post, i) => {
-	post.total = posts.length;
-	post.hasPrev = i ? true : false;
-	post.hasNext = (posts.length === i+1) ? false : true;
-	post.prevUrl = post.hasPrev ? posts[i-1].slug : '';
-	post.nextUrl = post.hasNext ? posts[i+1].slug : '';
+/*
+*	TODO check slug for uniqueness
+*/
+let createSlug = function(post) {
+	let slug = post.title
+    .toLowerCase() // to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
+    .replace(/\s+/g, "-") // collapse whitespace and replace by -
+	.replace(/-+/g, "-"); // collapse dashes
+	
+	return slug;
+}
+
+let posts = {};
+
+_posts.forEach( (post, i) => {
+	let slug = createSlug(post);
+	if(posts[slug] !== undefined) {
+		slug = slug+'-copy';
+	}
 	post.id = i;
+	post.prev = 0 === i ? false : true;
+	post.next = (_posts.length-1 <= i) ? false : true;
 	post.html = post.html.replace(/^\t{3}/gm, '');
+	posts[slug] = post;
 });
 
 export default posts;
