@@ -86,7 +86,7 @@
   <title>Products</title>
 </svelte:head>
 
-<Card title="products">
+<Card title="Products">
   <div>
 
     {#await products}

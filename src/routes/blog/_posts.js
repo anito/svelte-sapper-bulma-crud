@@ -85,7 +85,13 @@ const posts = [
 	}
 ];
 
-posts.forEach(post => {
+posts.forEach( (post, i) => {
+	post.total = posts.length;
+	post.hasPrev = i ? true : false;
+	post.hasNext = (posts.length === i+1) ? false : true;
+	post.prevUrl = post.hasPrev ? posts[i-1].slug : '';
+	post.nextUrl = post.hasNext ? posts[i+1].slug : '';
+	post.id = i;
 	post.html = post.html.replace(/^\t{3}/gm, '');
 });
 

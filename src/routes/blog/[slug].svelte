@@ -13,10 +13,22 @@
 			this.error(res.status, data.message);
 		}
 	}
+
+	let disabled = (...args) => {
+		console.log(args);
+		return true
+	}
+
 </script>
 
 <script>
 	export let post;
+
+	let go = function(e) {
+		let el = e.target;
+		let url = el.dataset.href;
+		window.location.href = url;
+	}
 </script>
 
 <style>
@@ -58,6 +70,14 @@
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
 	}
+	.button {
+		margin: 30px;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.button-group {
+		width: 100%;
+	}
 </style>
 
 <svelte:head>
@@ -66,9 +86,16 @@
 
 <h1>{post.title}</h1>
 
-
 <Card title="{post.title}">
 	<div class='content'>
 		{@html post.html}
+	</div>
+	<div slot="footer" class="columns is-mobile button-group is-block is-clearfix">
+		<button class="button is-link is-pulled-left column total-{post.total} id-{post.id}" data-href="/blog/{post.prevUrl}" disabled={!post.hasPrev} on:click={go}>
+			Previous
+		</button>
+		<button class="button is-link is-pulled-right column" data-href="/blog/{post.nextUrl}" disabled={!post.hasNext} on:click={go}>
+			Next
+		</button>
 	</div>
 </Card>
