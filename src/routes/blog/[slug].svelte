@@ -21,17 +21,17 @@
 <script>
 	export let post;
 
-	let go = function(e) {
+	let go = (e) => {
 		let el = e.target;
 		let url = el.dataset.href;
 		window.location.href = url;
 	}
-	let prevSlug = function() {
+	let prevSlug = () => {
 		if (0 === post.id) return "";
 		let keys = Object.keys(posts);
 		return keys[post.id-1];
 	}
-	let nextSlug = function() {
+	let nextSlug = () => {
 		let keys = Object.keys(posts);
 		if (keys.length-1 === post.id) return "";
 		let id = post.id+1;
