@@ -1,46 +1,64 @@
+<script>
+	import { Hero, Blurb } from '@sveltejs/site-kit';
+</script>
+
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Sapper • The next small thing in web development</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<Hero
+	title="Sapper"
+	tagline="Powered by Axel Nitzschner"
+	outline="sapper-logo-outline.svg"
+	logotype="sapper-logotype.svg"
+/>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
+<Blurb>
+	<a href="https://svelte.dev" slot="one">
+		<h2>Powered by Svelte</h2>
+		<p>Sapper is an application framework powered by Svelte — build bigger apps with a smaller footprint</p>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+		<span class="learn-more">learn more</span>
+	</a>
+
+	<a href="docs" slot="two">
+		<h2>Best of both worlds</h2>
+		<p>All the SEO and progressive enhancement of a server-rendered app, with the slick navigation of an SPA</p>
+
+		<span class="learn-more">learn more</span>
+	</a>
+
+	<a href="docs" slot="three">
+		<h2>Build fast</h2>
+		<p>Hit the ground running with advanced routing, server-side rendering, code-splitting, offline support and more</p>
+
+		<span class="learn-more">learn more</span>
+	</a>
+
+	<div class="description" slot="what">
+		<p>Sapper is a framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.</p>
+
+		<p>Unlike single-page apps, Sapper doesn't compromise on SEO, progressive enhancement or the initial load experience — but unlike traditional server-rendered apps, navigation is instantaneous for that app-like feel.</p>
+
+		<p><a href="https://svelte.dev/blog/sapper-towards-the-ideal-web-app-framework">Read the introductory blog post</a> to learn more.</p>
+	</div>
+
+	<div style="grid-area: start; display: flex; flex-direction: column; min-width: 0" slot="how">
+		<pre class="language-bash" style="margin: 0 0 1em 0; min-width: 0; min-height: 0">
+# for Rollup
+npx degit "sveltejs/sapper-template#rollup" my-app
+# for webpack
+npx degit "sveltejs/sapper-template#webpack" my-app
+cd my-app
+
+npm install
+npm run dev & open http://localhost:3000
+		</pre>
+
+		<p class="cta"><a rel="prefetch" href="docs">Learn Sapper</a></p>
+	</div>
+</Blurb>

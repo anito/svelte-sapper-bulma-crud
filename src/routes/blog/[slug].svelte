@@ -21,22 +21,17 @@
 <script>
 	export let post;
 
-	let go = (e) => {
-		let el = e.target;
-		let url = el.dataset.href;
-		window.location.href = url;
+	let nextSlug = '', prevSlug ='', keys;
+
+	$:  if (0 !== post.id) {
+		keys = Object.keys(posts);
+		prevSlug = keys[post.id-1];
 	}
-	let prevSlug = () => {
-		if (0 === post.id) return "";
-		let keys = Object.keys(posts);
-		return keys[post.id-1];
-	}
-	let nextSlug = () => {
-		let keys = Object.keys(posts);
-		if (keys.length-1 === post.id) return "";
+	$: if ( (keys = Object.keys(posts)) && keys.length-1 !== post.id) {
 		let id = post.id+1;
-		return keys[id];
+		nextSlug = keys[id];
 	}
+
 </script>
 
 <style>
@@ -91,6 +86,9 @@
 		width: 100%;
 		margin-left: 0;
 	}
+	:global(.card) {
+		--card-mw: 70%;
+	}
 </style>
 
 <svelte:head>
@@ -106,12 +104,12 @@
 			<Message message={post.message} messageHeader={post.messageHeader}/>
 		{/if}
 	</div>
-	<div slot="footer" class="columns is-mobile button-group is-block is-clearfix">
-		<button class="button is-link is-pulled-left column" data-href="/blog/{prevSlug()}" disabled={!post.prev} on:click={go}>
+	<div slot="footer" class="is-mobile button-group is-block is-clearfix">
+		<a rel='prefetch' class="button is-pulled-left" href="/blog/{prevSlug}" disabled={!post.prev}>
 			Previous
-		</button>
-		<button class="button is-link is-pulled-right column" data-href="/blog/{nextSlug()}" disabled={!post.next} on:click={go}>
+		</a>
+		<a rel='prefetch' class="button is-pulled-right" href="/blog/{nextSlug}" disabled={!post.next}>
 			Next
-		</button>
+		</a>
 	</div>
 </Card>

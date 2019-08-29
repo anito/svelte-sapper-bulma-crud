@@ -1,0 +1,36 @@
+/*	theme vars */
+.button, .message {
+    font-size: 1em;
+}
+.button:hover {
+    padding-left: .75em;
+    padding-right: .75em;
+}
+.button[disabled],
+fieldset[disabled] .button {
+    background-color: var(--prime);
+    color: #ffffff;
+    opacity: .5;
+}
+.button, .button[disabled="false"],
+fieldset[disabled="false"] .button {
+    background-color: var(--prime);
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 1;
+}
+.button.is-link[disabled="false"],
+fieldset[disabled="false"] {
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: none;
+}
+.hero {
+    display: block;
+}
+.col-action a {
+    border-bottom: 0 none;
+}
+.col-action a i {
+    padding: 5px;
+}

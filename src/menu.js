@@ -1,7 +1,7 @@
 const menu = [
     ["home","Home"],
-    ["categories","Categories"],
-    ["products","Products"],
+    ["store/categories","Categories"],
+    ["store/products","Products"],
     ["blog","Blog"],
     ["about","About"]
 ]
