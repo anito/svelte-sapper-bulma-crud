@@ -1,7 +1,7 @@
 {
   "name": "sapper.svelte.dev",
   "description": "sapper.svelte.dev",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
@@ -32,6 +32,7 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/runtime": "^7.4.4",
     "@sveltejs/site-kit": "^1.1.1",
+    "bulma": "^0.7.5",
     "style-loader": "^0.23.1",
     "css-loader": "^0.23.1",
     "npm-run-all": "^4.1.5",
@@ -43,7 +44,7 @@
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^4.0.4",
     "webpack": "^4.7.0",
-    "sapper": "^0.27.1",
+    "sapper": "^0.27.4",
     "svelte": "^3.2.2",
     "svelte-loader": "^2.9.0"
   }

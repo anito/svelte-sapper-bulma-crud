@@ -1,5 +1,7 @@
 <script>
-    export let title = ""
+    export let title = "";
+    export let bgColor = "1";
+
 </script>
 
 
@@ -10,7 +12,7 @@
     }
 </style>
 
-<div class="card">
+<div class="card" style="background-color: {bgColor}">
     <header class="card-header">
         <p class="card-header-title">
             {title}
