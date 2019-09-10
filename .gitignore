@@ -6,3 +6,4 @@ yarn-error.log
 /__sapper__/dev
 /__sapper__/build
 .vscode
+error.log
